@@ -1,0 +1,72 @@
+package br.com.confidencecambio.aplicacao.model;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serial;
+import java.io.Serializable;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "merchant", catalog = "facilitadoras.dbo")
+public class Merchant implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -4490721768940704565L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull
+    @Column(name = "nome fantasia")
+    private String nome_fantasia;
+
+    @NotNull
+    @Column(name = "nome registro")
+    private String nome_registro;
+
+    @NotNull
+    @Column(name = "id pais registro")
+    private Long fk_id_pais_registro;
+
+    @NotNull
+    @Column(name = "URL")
+    private String url;
+
+    @NotNull
+    @Column(name = "categoria")
+    private Long fk_id_categoria;
+
+    @Column(name = "id notoriedade")
+    private Long fk_id_notoriedade;
+
+    @Column(name = "nif")
+    private String nif;
+
+    @Column(name = "telefone")
+    private String telefone;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "socios")
+    private String socios;
+
+    @Column(name = "status")
+    private Long fk_id_status;
+
+    @Column(name = "id facilitadora")
+    private Long fk_id_facilitadora;
+}
+
+
+

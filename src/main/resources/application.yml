@@ -1,0 +1,7 @@
+## Auth (Requests Serviços)
+authorization:
+  headers:
+    auth: auth
+
+auth.access: '{"usuario": "change.integracao", "senha": "123Mudar@"}'
+auth.url: http://10.40.0.85:9090/auth2
