@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -68,7 +69,10 @@ public class Merchant implements Serializable {
     private Long fk_id_facilitadora;
 
     @Column(name = "data_hora")
-    private Date data_hora;
+    private LocalDate data_hora;
+
+    @Column(name = "lista_restritiva")
+    private String lista_restritiva;
 }
 
 

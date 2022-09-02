@@ -5,12 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.sourceforge.jtds.jdbc.DateTime;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -54,7 +53,8 @@ public class MerchantDTO {
     private  String[] socios;
     private Long fk_id_status;
     private Long fk_id_facilitadora;
-    private Date data_hora;
+    private LocalDate data_hora;
+    private String lista_restritiva;
 
     public static MerchantDTO convertDto(Merchant merchant) {
         return MerchantDTO.builder()

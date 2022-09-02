@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -28,6 +29,9 @@ public class MerchantRequest {
     private Long fk_id_status;
     @NotNull(message = "Id Facilitadora não pode ser nulo")
     private Long fk_id_facilitadora;
+    private LocalDate data_hora;
+    private String lista_restritiva;
+
 
 
 }
