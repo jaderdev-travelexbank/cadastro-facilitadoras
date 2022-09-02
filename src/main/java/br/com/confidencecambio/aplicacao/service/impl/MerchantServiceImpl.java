@@ -68,10 +68,9 @@ public class MerchantServiceImpl implements IMerchantService {
     }
 
     @Override
-    public MerchantDTO atualizar(Long id, MerchantDTO merchantDTO) throws Exception {
+    public MerchantDTO atualizar(MerchantDTO merchantDTO) throws Exception {
         log.info(MensagemLogs.SERVICO_INICIADO.getDescricao(), "atualizar");
         try {
-            merchantDTO.setId(id);
             Merchant entity = modelMapper.map(merchantDTO, Merchant.class);
             return modelMapper.map(repository.save(entity), MerchantDTO.class);
         } catch (Exception e) {

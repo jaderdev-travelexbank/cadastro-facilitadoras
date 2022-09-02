@@ -5,6 +5,7 @@ import br.com.confidencecambio.aplicacao.dto.MerchantDTO;
 import br.com.confidencecambio.aplicacao.service.ILogService;
 import br.com.confidencecambio.aplicacao.service.IMerchantService;
 import br.com.confidencecambio.aplicacao.util.ClasseUtil;
+import br.com.confidencecambio.aplicacao.ws.v1.rs.model.response.Erro;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -12,14 +13,13 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.internal.Errors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Collections;
@@ -79,5 +79,26 @@ public class MerchantController {
         }
         gravarLog(ClasseUtil.classeName(), id.toString(), buscarMerchant.toString());
         return new ResponseEntity<>(buscarMerchant, HttpStatus.OK);
+    }
+
+    @PostMapping("/merchant/cadastro")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "400", description = "Invalid Input")
+    })
+    @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
+    public ResponseEntity<MerchantDTO> save(@RequestBody MerchantDTO merchantDTO) throws Exception{
+        MerchantDTO merchantResponse = service.salvar(merchantDTO);
+        return new ResponseEntity<>(merchantResponse, HttpStatus.OK);
+    }
+
+
+    @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
+    @PutMapping("/{id}")
+    public ResponseEntity<MerchantDTO> updateMerchant(@PathVariable("id") Long id, @Valid @NotNull @RequestBody MerchantDTO merchantDTO, Errors errors) throws Exception {
+        if(isNull(id) || isNull(service.buscarMerchantById(id)))
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        merchantDTO.setId(id);
+        MerchantDTO merchantResponse = service.atualizar(merchantDTO);
+        return new ResponseEntity<>(merchantResponse, HttpStatus.OK);
     }
 }

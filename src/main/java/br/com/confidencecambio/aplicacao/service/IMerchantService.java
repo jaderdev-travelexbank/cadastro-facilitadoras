@@ -8,7 +8,7 @@ public interface IMerchantService {
 
     MerchantDTO salvar(MerchantDTO merchant) throws Exception;
 
-    MerchantDTO atualizar(Long id, MerchantDTO merchant) throws Exception;
+    MerchantDTO atualizar(MerchantDTO merchantDTO) throws Exception;
 
     List<MerchantDTO> buscarStatusMerchant();
 
