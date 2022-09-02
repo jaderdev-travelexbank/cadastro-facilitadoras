@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.sourceforge.jtds.jdbc.DateTime;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -75,6 +76,7 @@ public class MerchantDTO {
         return Optional.ofNullable(lista).isPresent() ?
                 lista.stream().map(MerchantDTO::convertDto).collect(Collectors.toList()) : null;
     }
+    private DateTime data_hora;
 
 
 }

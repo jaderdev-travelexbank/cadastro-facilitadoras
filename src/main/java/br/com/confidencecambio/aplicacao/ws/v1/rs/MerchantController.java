@@ -15,11 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Collections;
@@ -54,7 +52,7 @@ public class MerchantController {
     })
     @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
     @GetMapping("/todos")
-    public ResponseEntity<List<MerchantDTO>> buscarTodos() throws Exception {
+    public ResponseEntity<List<MerchantDTO>> merchantAll() throws Exception {
         gravarLog(ClasseUtil.classeName(), "", "");
         List<MerchantDTO> MerchantDTO = ofNullable(service.buscarMerchant()).orElseGet(Collections::emptyList);
         if (MerchantDTO.isEmpty()) {
@@ -70,7 +68,7 @@ public class MerchantController {
             @ApiResponse(responseCode = "400", description = "Invalid Input")
     })
     @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
-    public ResponseEntity<MerchantDTO> buscarPorId(@NotNull @NotBlank @PathVariable("id") Long id) {
+    public ResponseEntity<MerchantDTO> merchantId(@NotNull @NotBlank @PathVariable("id") Long id) {
         gravarLog(ClasseUtil.classeName(), id.toString(), "");
         MerchantDTO buscarMerchant = service.buscarMerchantById(id);
         if (isNull(buscarMerchant)) {
@@ -79,5 +77,26 @@ public class MerchantController {
         }
         gravarLog(ClasseUtil.classeName(), id.toString(), buscarMerchant.toString());
         return new ResponseEntity<>(buscarMerchant, HttpStatus.OK);
+    }
+
+    @PostMapping("/merchant/cadastro")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "400", description = "Invalid Input")
+    })
+    @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
+    public ResponseEntity<MerchantDTO> save(@RequestBody MerchantDTO merchantDTO) throws Exception{
+        MerchantDTO merchantResponse = service.salvar(merchantDTO);
+        return new ResponseEntity<>(merchantResponse, HttpStatus.OK);
+    }
+
+
+    @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
+    @PutMapping("/{id}")
+    public ResponseEntity<MerchantDTO> update(@PathVariable("id") Long id, @Valid @NotNull @RequestBody MerchantDTO merchantDTO) throws Exception {
+        if(isNull(id) || isNull(service.buscarMerchantById(id)))
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        merchantDTO.setId(id);
+        MerchantDTO merchantResponse = service.atualizar(merchantDTO);
+        return new ResponseEntity<>(merchantResponse, HttpStatus.OK);
     }
 }
