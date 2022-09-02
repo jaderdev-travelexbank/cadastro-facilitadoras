@@ -27,15 +27,15 @@ public class Merchant implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "nome fantasia")
+    @Column(name = "nome_fantasia")
     private String nome_fantasia;
 
     @NotNull
-    @Column(name = "nome registro")
+    @Column(name = "nome_registro")
     private String nome_registro;
 
     @NotNull
-    @Column(name = "id pais registro")
+    @Column(name = "id_pais_registro")
     private Long fk_id_pais_registro;
 
     @NotNull
@@ -43,10 +43,10 @@ public class Merchant implements Serializable {
     private String url;
 
     @NotNull
-    @Column(name = "categoria")
+    @Column(name = "id_categoria")
     private Long fk_id_categoria;
 
-    @Column(name = "id notoriedade")
+    @Column(name = "id_notoriedade")
     private Long fk_id_notoriedade;
 
     @Column(name = "nif")
@@ -61,10 +61,10 @@ public class Merchant implements Serializable {
     @Column(name = "socios")
     private String socios;
 
-    @Column(name = "status")
+    @Column(name = "id_status")
     private Long fk_id_status;
 
-    @Column(name = "id facilitadora")
+    @Column(name = "id_facilitadora")
     private Long fk_id_facilitadora;
 }
 
