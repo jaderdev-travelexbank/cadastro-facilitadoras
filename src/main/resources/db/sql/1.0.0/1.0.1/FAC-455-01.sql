@@ -1,0 +1,28 @@
+
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Dólar Americano', 'Dólar Americano', 'USD', 'USDBRL', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Euro', 'Euro', 'EUR', 'EURUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Libra Esterlina', 'Libra Esterlina', 'GBP', 'GBPUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Dólar Australiano', 'Dólar Australiano', 'AUD', 'AUDUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Dólar Canadense', 'Dólar Canadense', 'CAD', 'CADUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Iene', 'Iene', 'JPY', 'JPYUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Dólar Neozelandês', 'Dólar Neozelandês', 'NZD', 'NZDUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Franco Suíço', 'Franco Suíço', 'CHF', 'CHFUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Coroa Norueguesa', 'Coroa Norueguesa', 'NOK', 'NOKUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Coroa Sueca', 'Coroa Sueca', 'SEK', 'SEKUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Coroa Dinamarquesa', 'Coroa Dinamarquesa', 'DKK', 'DKKUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Renminbi', 'Renminbi', 'CNY', 'CNYUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Rand', 'Rand', 'ZAR', 'ZARUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Peso Mexicano', 'Peso Mexicano', 'MXN', 'MXNUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Peso Chileno', 'Peso Chileno', 'CLP', 'CLPUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Peso Colombiano', 'Peso Colombiano', 'COP', 'COPUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Peso dominicano', 'Peso dominicano', 'DOP', 'DOPUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Dólar de Hong Kong', 'Dólar de Hong Kong', 'HKD', 'HKDUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Rial catarense', 'Rial catarense', 'QAR', 'QARUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Novo shekel israelense', 'Novo shekel israelense', 'ILS', 'ILSUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Won sul-coreano', 'Won sul-coreano', 'KRW', 'KRWUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Rublo russo', 'Rublo russo', 'RUB', 'RUBUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Sol Peruano', 'Sol Peruano', 'PEN', 'PENUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Peso Uruguaio', 'Peso Uruguaio', 'UYU', 'UYUUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Dirrã Marroquino', 'Dirrã Marroquino', 'MAD', 'MADUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Dirrã dos Emirados Árabes Unidos', 'Dirrã dos Emirados Árabes Unidos', 'AED', 'AEDUSD', 1 );
+INSERT INTO facilitadoras.dbo.moedas (nome, descricao, codigo, unique_symbols_cod, ativo) VALUES('Peso argentino', 'Peso argentino', 'ARS', 'ARSUSD', 1 );	
