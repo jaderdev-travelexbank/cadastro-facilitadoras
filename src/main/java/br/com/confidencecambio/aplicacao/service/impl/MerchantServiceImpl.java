@@ -42,13 +42,8 @@ public class MerchantServiceImpl implements IMerchantService {
     public List<MerchantDTO> buscarMerchant() throws Exception {
         log.info(MensagemLogs.SERVICO_INICIADO.getDescricao(), "buscarTodosMerchant");
         try {
-            List<Merchant> y = repository.find();
-            log.debug(String.valueOf(y.size()));
-            for ( Merchant x : y ) {
-                log.info(x.getEmail());
-            }
-            return null;//repository.findAll().stream().map(entity -> modelMapper.map(entity, MerchantDTO.class))
-                    //.collect(Collectors.toList());
+            return repository.findAll().stream().map(entity -> modelMapper.map(entity, MerchantDTO.class))
+                    .collect(Collectors.toList());
         } catch (Exception e) {
             log.error(MensagemLogs.SERVICO_FALHOU.getDescricao(), "buscarTodosMerchant", e);
             throw new Exception(e);
