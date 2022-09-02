@@ -5,7 +5,6 @@ import br.com.confidencecambio.aplicacao.dto.MerchantDTO;
 import br.com.confidencecambio.aplicacao.service.ILogService;
 import br.com.confidencecambio.aplicacao.service.IMerchantService;
 import br.com.confidencecambio.aplicacao.util.ClasseUtil;
-import br.com.confidencecambio.aplicacao.ws.v1.rs.model.response.Erro;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -13,7 +12,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.internal.Errors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,7 +52,7 @@ public class MerchantController {
     })
     @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
     @GetMapping("/todos")
-    public ResponseEntity<List<MerchantDTO>> buscarTodos() throws Exception {
+    public ResponseEntity<List<MerchantDTO>> merchantAll() throws Exception {
         gravarLog(ClasseUtil.classeName(), "", "");
         List<MerchantDTO> MerchantDTO = ofNullable(service.buscarMerchant()).orElseGet(Collections::emptyList);
         if (MerchantDTO.isEmpty()) {
@@ -70,7 +68,7 @@ public class MerchantController {
             @ApiResponse(responseCode = "400", description = "Invalid Input")
     })
     @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
-    public ResponseEntity<MerchantDTO> buscarPorId(@NotNull @NotBlank @PathVariable("id") Long id) {
+    public ResponseEntity<MerchantDTO> merchantId(@NotNull @NotBlank @PathVariable("id") Long id) {
         gravarLog(ClasseUtil.classeName(), id.toString(), "");
         MerchantDTO buscarMerchant = service.buscarMerchantById(id);
         if (isNull(buscarMerchant)) {
@@ -94,7 +92,7 @@ public class MerchantController {
 
     @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
     @PutMapping("/{id}")
-    public ResponseEntity<MerchantDTO> updateMerchant(@PathVariable("id") Long id, @Valid @NotNull @RequestBody MerchantDTO merchantDTO, Errors errors) throws Exception {
+    public ResponseEntity<MerchantDTO> update(@PathVariable("id") Long id, @Valid @NotNull @RequestBody MerchantDTO merchantDTO) throws Exception {
         if(isNull(id) || isNull(service.buscarMerchantById(id)))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         merchantDTO.setId(id);
