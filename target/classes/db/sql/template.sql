@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset jaderdev-travelexbank:template logicalFilePath:template.sql
+--changeset deal.msiqueira:template logicalFilePath:template
 --comment: Ajuste para execução dos scripts iniciais
 
 select * from databaseChangelog;

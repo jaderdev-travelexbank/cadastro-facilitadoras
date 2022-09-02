@@ -5,12 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.sourceforge.jtds.jdbc.DateTime;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @Builder
@@ -69,7 +68,7 @@ public class Merchant implements Serializable {
     private Long fk_id_facilitadora;
 
     @Column(name = "data_hora")
-    private DateTime data_hora;
+    private Date data_hora;
 }
 
 

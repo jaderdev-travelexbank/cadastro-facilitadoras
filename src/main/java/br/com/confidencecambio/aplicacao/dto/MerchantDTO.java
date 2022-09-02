@@ -10,6 +10,7 @@ import net.sourceforge.jtds.jdbc.DateTime;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -76,7 +77,8 @@ public class MerchantDTO {
         return Optional.ofNullable(lista).isPresent() ?
                 lista.stream().map(MerchantDTO::convertDto).collect(Collectors.toList()) : null;
     }
-    private DateTime data_hora;
+
+    private Date data_hora;
 
 
 }
