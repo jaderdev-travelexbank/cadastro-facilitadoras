@@ -54,6 +54,7 @@ public class MerchantDTO {
     private  String[] socios;
     private Long fk_id_status;
     private Long fk_id_facilitadora;
+    private Date data_hora;
 
     public static MerchantDTO convertDto(Merchant merchant) {
         return MerchantDTO.builder()
@@ -77,8 +78,6 @@ public class MerchantDTO {
         return Optional.ofNullable(lista).isPresent() ?
                 lista.stream().map(MerchantDTO::convertDto).collect(Collectors.toList()) : null;
     }
-
-    private Date data_hora;
 
 
 }

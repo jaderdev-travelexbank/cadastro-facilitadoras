@@ -61,7 +61,8 @@ CREATE TABLE facilitadoras.dbo.merchant (
     email varchar(50),
     socios varchar,
     status bigint FOREIGN KEY REFERENCES status(id),
-    facilitadora bigint FOREIGN KEY REFERENCES facilitadoras(id)
+    facilitadora bigint FOREIGN KEY REFERENCES facilitadoras(id),
+    data_hora datetime
 );
 --comment: FOREIGN KEY MERCHANT
 ALTER TABLE facilitadoras.dbo.merchant add constraint "PK_merchant_id" primary key (id);
