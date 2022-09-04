@@ -51,7 +51,6 @@ CREATE TABLE facilitadoras.dbo.merchant (
     id bigint IDENTITY(1,1) ,
     nome_fantasia varchar(100) NOT NULL,
     nome_registro varchar(100) NOT NULL,
-    data_hora datetime NOT NULL,
     pais_registro bigint FOREIGN KEY REFERENCES paisRegistro(id),
     url varchar(100) NOT NULL,
     categoria bigint FOREIGN KEY REFERENCES categoria(id),

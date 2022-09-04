@@ -1,6 +1,7 @@
 package br.com.confidencecambio.aplicacao.dto;
 
 import br.com.confidencecambio.aplicacao.model.Merchant;
+import br.com.confidencecambio.aplicacao.model.PaisRegistro;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,7 +36,7 @@ public class MerchantDTO {
 
     @NotNull(message = "Parâmetro País de Registro obrigatório")
     @NotBlank
-    private Long fk_id_pais_registro;
+    private PaisRegistro paisRegistro;
 
     @NotNull(message = "Parâmetro URL obrigatório")
     @NotBlank
@@ -61,7 +62,7 @@ public class MerchantDTO {
                 .id(merchant.getId())
                 .nome_fantasia(merchant.getNome_fantasia())
                 .nome_registro(merchant.getNome_registro())
-                .fk_id_pais_registro(merchant.getFk_id_pais_registro())
+                .paisRegistro(merchant.getPaisRegistroIdPaisRegistro())
                 .url(merchant.getUrl())
                 .fk_id_categoria(merchant.getFk_id_categoria())
                 .fk_id_notoriedade(merchant.getFk_id_notoriedade())

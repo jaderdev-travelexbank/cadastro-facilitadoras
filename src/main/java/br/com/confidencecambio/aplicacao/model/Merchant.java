@@ -35,9 +35,15 @@ public class Merchant implements Serializable {
     @Column(name = "nome_registro")
     private String nome_registro;
 
+
+    //private Long fk_id_pais_registro;
     @NotNull
     @Column(name = "pais_registro")
-    private Long fk_id_pais_registro;
+    private String pais_registro;
+    @JoinColumn(name = "fk_id_pais_registro", referencedColumnName = "id")
+    @ManyToOne
+    private PaisRegistro paisRegistroIdPaisRegistro;
+
 
     @NotNull
     @Column(name = "URL")
