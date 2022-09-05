@@ -79,6 +79,15 @@ public class Merchant implements Serializable {
 
     @Column(name = "lista_restritiva")
     private String listaRestritiva;
+
+    @Column(name = "limite")
+    private String limite;
+
+    @Column(name = "grau_risco")
+    private String grauRisco;
+
+    @Column(name = "tempo_validade_cadastro")
+    private String tempoValidadeCadastro;
 }
 
 

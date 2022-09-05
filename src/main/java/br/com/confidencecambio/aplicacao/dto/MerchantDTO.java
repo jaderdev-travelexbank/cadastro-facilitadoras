@@ -55,6 +55,9 @@ public class MerchantDTO {
     private Facilitadoras facilitadoras;
     private LocalDate dataHora;
     private String listaRestritiva;
+    private String limite;
+    private String grauRisco;
+    private String tempoValidadeCadastro;
 
     public static MerchantDTO convertDto(Merchant merchant) {
         return MerchantDTO.builder()
@@ -73,6 +76,9 @@ public class MerchantDTO {
                 .facilitadoras(merchant.getFacilitadorasIdFacilitadoras())
                 .listaRestritiva(merchant.getListaRestritiva())
                 .dataHora(merchant.getDataHora())
+                .limite(merchant.getLimite())
+                .grauRisco(merchant.getGrauRisco())
+                .tempoValidadeCadastro(merchant.getTempoValidadeCadastro())
                 .build();
     }
 

@@ -31,6 +31,9 @@ public class MerchantRequest {
     private Long fk_id_facilitadora;
     private LocalDate dataHora;
     private String listaRestritiva;
+    private String limite;
+    private String grauRisco;
+    private String tempoValidadeCadastro;
 
 
 
