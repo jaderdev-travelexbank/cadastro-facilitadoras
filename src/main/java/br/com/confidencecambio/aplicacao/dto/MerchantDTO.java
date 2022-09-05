@@ -63,14 +63,14 @@ public class MerchantDTO {
                 .nome_registro(merchant.getNome_registro())
                 .paisRegistro(merchant.getPaisRegistroIdPaisRegistro())
                 .url(merchant.getUrl())
-                //.categoria(merchant.)
-                //.fk_id_notoriedade(merchant.getFk_id_notoriedade())
+                .categoria(merchant.getCategoriaIdCategoria())
+                .notoriedade(merchant.getNotoriedadeIdNotoriedade())
                 .nif(merchant.getNif())
                 .telefone(merchant.getTelefone())
                 .email(merchant.getEmail())
                 .socios(new String[]{merchant.getSocios()})
-                //.fk_id_status(merchant.getFk_id_status())
-                //.fk_id_facilitadora(merchant.getFk_id_facilitadora())
+                .status(merchant.getStatusIdStatus())
+                .facilitadoras(merchant.getFacilitadorasIdFacilitadoras())
                 .lista_restritiva(merchant.getLista_restritiva())
                 .build();
     }
