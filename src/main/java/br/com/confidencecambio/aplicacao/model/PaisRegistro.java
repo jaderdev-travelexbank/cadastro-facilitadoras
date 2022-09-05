@@ -25,6 +25,6 @@ public class PaisRegistro implements Serializable{
     private Long id;
 
     @NotNull
-    @Column(name = "descrição")
+    @Column(name = "descricao")
     private String descricao;
 }
