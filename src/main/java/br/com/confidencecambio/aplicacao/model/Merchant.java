@@ -51,7 +51,6 @@ public class Merchant implements Serializable {
 
     @JoinColumn(name = "notoriedade", referencedColumnName = "id")
     @ManyToOne
-    @Column(name = "notoriedade")
     private Notoriedade notoriedadeIdNotoriedade;
 
     @Column(name = "nif")
@@ -73,7 +72,6 @@ public class Merchant implements Serializable {
 
     @JoinColumn(name = "facilitadora", referencedColumnName = "id")
     @ManyToOne
-    @Column(name = "facilitadora")
     private Facilitadoras facilitadorasIdFacilitadoras;
 
     @Column(name = "data_hora")
