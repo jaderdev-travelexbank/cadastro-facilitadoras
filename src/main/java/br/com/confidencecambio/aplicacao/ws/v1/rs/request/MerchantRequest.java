@@ -12,11 +12,11 @@ import java.time.LocalDate;
 public class MerchantRequest {
 
     @NotNull(message = "Nome Fantasia não pode ser nulo")
-    private String nome_fantasia;
+    private String nomeFantasia;
     @NotNull(message = "Nome Registro não pode ser nulo")
-    private String nome_registro;
+    private String nomeRegistro;
     @NotNull(message = "Id País de Registro não pode ser nulo")
-    private Long fk_id_pais_registro;
+    private Long fk_id_paisRegistro;
     @NotNull(message = "URL não pode ser nulo")
     private String url;
     @NotNull(message = "Categoria não pode ser nulo")
@@ -29,8 +29,8 @@ public class MerchantRequest {
     private Long fk_id_status;
     @NotNull(message = "Id Facilitadora não pode ser nulo")
     private Long fk_id_facilitadora;
-    private LocalDate data_hora;
-    private String lista_restritiva;
+    private LocalDate dataHora;
+    private String listaRestritiva;
 
 
 

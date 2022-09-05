@@ -41,4 +41,6 @@ public class FacilitadorasServiceImpl implements IFacilitadorasService {
         log.info(LOG_INFO, ClasseUtil.classeName(), START);
         return FacilitadorasDTO.convert(repository.findByNomeRegistroContains(descricao));
     }
+
+
 }

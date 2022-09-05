@@ -26,12 +26,12 @@ public class MerchantDTO {
     @NotNull(message = "Parâmetro Nome Fantasia obrigatório")
     @NotBlank
     @Size(min = 1, max = 100, message = "Parâmetro Nome Fantasia inválido")
-    private String nome_fantasia;
+    private String nomeFantasia;
 
     @NotNull(message = "Parâmetro Nome Registro obrigatório")
     @NotBlank
     @Size(min = 1, max = 100, message = "Parâmetro Nome Registro inválido")
-    private String nome_registro;
+    private String nomeRegistro;
 
     @NotNull(message = "Parâmetro País de Registro obrigatório")
     @NotBlank
@@ -59,8 +59,8 @@ public class MerchantDTO {
     public static MerchantDTO convertDto(Merchant merchant) {
         return MerchantDTO.builder()
                 .id(merchant.getId())
-                .nome_fantasia(merchant.getNome_fantasia())
-                .nome_registro(merchant.getNome_registro())
+                .nomeFantasia(merchant.getNomeFantasia())
+                .nomeRegistro(merchant.getNomeRegistro())
                 .paisRegistro(merchant.getPaisRegistroIdPaisRegistro())
                 .url(merchant.getUrl())
                 .categoria(merchant.getCategoriaIdCategoria())
@@ -71,7 +71,7 @@ public class MerchantDTO {
                 .socios(new String[]{merchant.getSocios()})
                 .status(merchant.getStatusIdStatus())
                 .facilitadoras(merchant.getFacilitadorasIdFacilitadoras())
-                .lista_restritiva(merchant.getLista_restritiva())
+                .lista_restritiva(merchant.getListaRestritiva())
                 .build();
     }
 

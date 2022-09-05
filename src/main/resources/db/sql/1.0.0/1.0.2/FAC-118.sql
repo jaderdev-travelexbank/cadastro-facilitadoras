@@ -49,9 +49,9 @@ ALTER TABLE facilitadoras.dbo.notoriedade add constraint "PK_notoriedade_id" pri
 --comment: TABELA MERCHANT
 CREATE TABLE facilitadoras.dbo.merchant (
     id bigint IDENTITY(1,1) ,
-    nome_fantasia varchar(100) NOT NULL,
-    nome_registro varchar(100) NOT NULL,
-    pais_registro bigint FOREIGN KEY REFERENCES paisRegistro(id),
+    nomeFantasia varchar(100) NOT NULL,
+    nomeRegistro varchar(100) NOT NULL,
+    paisRegistro bigint FOREIGN KEY REFERENCES paisRegistro(id),
     url varchar(100) NOT NULL,
     categoria bigint FOREIGN KEY REFERENCES categoria(id),
     notoriedade bigint FOREIGN KEY REFERENCES notoriedade(id),
@@ -61,8 +61,8 @@ CREATE TABLE facilitadoras.dbo.merchant (
     socios varchar(300),
     status bigint FOREIGN KEY REFERENCES status(id),
     facilitadora bigint FOREIGN KEY REFERENCES facilitadoras(id),
-    data_hora smalldatetime not null,
-    lista_restritiva varchar(100)
+    dataHora smalldatetime not null,
+    listaRestritiva varchar(100)
 );
 --comment: FOREIGN KEY MERCHANT
 ALTER TABLE facilitadoras.dbo.merchant add constraint "PK_merchant_id" primary key (id);

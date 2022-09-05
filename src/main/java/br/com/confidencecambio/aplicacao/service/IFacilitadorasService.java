@@ -11,4 +11,5 @@ public interface IFacilitadorasService {
     List<FacilitadorasDTO> listarTodasNomeFantasia(String nome);
 
     List<FacilitadorasDTO> listarTodasNomeRegistro(String nome);
+
 }
