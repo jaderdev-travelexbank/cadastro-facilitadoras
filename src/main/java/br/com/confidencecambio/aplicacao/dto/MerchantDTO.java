@@ -1,7 +1,6 @@
 package br.com.confidencecambio.aplicacao.dto;
 
-import br.com.confidencecambio.aplicacao.model.Merchant;
-import br.com.confidencecambio.aplicacao.model.PaisRegistro;
+import br.com.confidencecambio.aplicacao.model.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -45,15 +44,15 @@ public class MerchantDTO {
 
     @NotNull(message = "Parâmetro Categoria obrigatório")
     @NotBlank
-    private Long fk_id_categoria;
-    private Long fk_id_notoriedade;
+    private Categoria categoria;
+    private Notoriedade notoriedade;
     private String nif;
     private String telefone;
     private String email;
     @Size(max = 10)
     private  String[] socios;
-    private Long fk_id_status;
-    private Long fk_id_facilitadora;
+    private Status status;
+    private Facilitadoras facilitadoras;
     private LocalDate data_hora;
     private String lista_restritiva;
 
@@ -64,14 +63,15 @@ public class MerchantDTO {
                 .nome_registro(merchant.getNome_registro())
                 .paisRegistro(merchant.getPaisRegistroIdPaisRegistro())
                 .url(merchant.getUrl())
-                .fk_id_categoria(merchant.getFk_id_categoria())
-                .fk_id_notoriedade(merchant.getFk_id_notoriedade())
+                //.categoria(merchant.)
+                //.fk_id_notoriedade(merchant.getFk_id_notoriedade())
                 .nif(merchant.getNif())
                 .telefone(merchant.getTelefone())
                 .email(merchant.getEmail())
                 .socios(new String[]{merchant.getSocios()})
-                .fk_id_status(merchant.getFk_id_status())
-                .fk_id_facilitadora(merchant.getFk_id_facilitadora())
+                //.fk_id_status(merchant.getFk_id_status())
+                //.fk_id_facilitadora(merchant.getFk_id_facilitadora())
+                .lista_restritiva(merchant.getLista_restritiva())
                 .build();
     }
 
