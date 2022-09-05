@@ -1,4 +1,4 @@
-package br.com.confidencecambio.aplicacao.ws.v1.rs.model.request;
+package br.com.confidencecambio.aplicacao.ws.v1.rs.request;
 
 import lombok.Data;
 

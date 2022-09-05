@@ -53,6 +53,7 @@ public class MerchantServiceImpl implements IMerchantService {
     @Override
     public MerchantDTO salvar(MerchantDTO merchantDTO) throws Exception {
         log.info(MensagemLogs.SERVICO_INICIADO.getDescricao(), "salvar");
+
         try {
             Merchant entity = modelMapper.map(merchantDTO, Merchant.class);
             return modelMapper.map(repository.save(entity), MerchantDTO.class);

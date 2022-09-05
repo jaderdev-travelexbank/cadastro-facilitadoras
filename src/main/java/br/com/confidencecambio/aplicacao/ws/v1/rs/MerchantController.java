@@ -2,8 +2,13 @@ package br.com.confidencecambio.aplicacao.ws.v1.rs;
 
 import br.com.confidencecambio.aplicacao.dto.LogDTO;
 import br.com.confidencecambio.aplicacao.dto.MerchantDTO;
+import br.com.confidencecambio.aplicacao.enums.ListaRestritivaStatus;
+import br.com.confidencecambio.aplicacao.enums.MerchantStatus;
+import br.com.confidencecambio.aplicacao.model.Status;
+import br.com.confidencecambio.aplicacao.service.IListaRestritivaService;
 import br.com.confidencecambio.aplicacao.service.ILogService;
 import br.com.confidencecambio.aplicacao.service.IMerchantService;
+import br.com.confidencecambio.aplicacao.service.impl.ListaRestritivaServiceImpl;
 import br.com.confidencecambio.aplicacao.util.ClasseUtil;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -40,6 +45,9 @@ public class MerchantController {
 
     @Autowired
     private IMerchantService service;
+
+    @Autowired
+    private IListaRestritivaService listaRestritiva;
 
     private void gravarLog(String tipoConsulta, String request, String response) {
         LogDTO logDto = new LogDTO(tipoConsulta, "usuario", "sistema", request, response);
@@ -85,7 +93,11 @@ public class MerchantController {
     })
     @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
     public ResponseEntity<MerchantDTO> save(@RequestBody MerchantDTO merchantDTO) throws Exception{
+        Status status = new Status();
+        status.setDescricao(MerchantStatus.PEND_ANALISE.toString());
+        merchantDTO.setStatus(status);
         MerchantDTO merchantResponse = service.salvar(merchantDTO);
+        listaRestritiva.ConsultarListaRestritiva(merchantDTO);
         return new ResponseEntity<>(merchantResponse, HttpStatus.OK);
     }
 

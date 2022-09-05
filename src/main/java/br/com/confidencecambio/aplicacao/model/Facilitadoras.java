@@ -6,7 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -39,7 +39,7 @@ public class Facilitadoras implements Serializable {
 
     @NotNull
     @Column(name = "data_alteracao")
-    private LocalDateTime dataAlteracao;
+    private LocalDate dataAlteracao;
 
     @Column(name = "usuario")
     private String usuario;
