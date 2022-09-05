@@ -10,7 +10,6 @@ import javax.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @Builder
@@ -38,9 +37,7 @@ public class Merchant implements Serializable {
 
     //private Long fk_id_pais_registro;
     @NotNull
-    @Column(name = "pais_registro")
-    private String pais_registro;
-    @JoinColumn(name = "fk_id_pais_registro", referencedColumnName = "id")
+    @JoinColumn(name = "pais_registro", referencedColumnName = "id")
     @ManyToOne
     private PaisRegistro paisRegistroIdPaisRegistro;
 
