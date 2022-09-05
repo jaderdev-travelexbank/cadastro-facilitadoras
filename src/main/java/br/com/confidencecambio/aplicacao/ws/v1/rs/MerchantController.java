@@ -108,6 +108,9 @@ public class MerchantController {
         if(isNull(id) || isNull(service.buscarMerchantById(id)))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         merchantDTO.setId(id);
+        Status status = new Status();
+        status.setDescricao(MerchantStatus.PEND_ANALISE.toString());
+        merchantDTO.setStatus(status);
         MerchantDTO merchantResponse = service.atualizar(merchantDTO);
         return new ResponseEntity<>(merchantResponse, HttpStatus.OK);
     }
