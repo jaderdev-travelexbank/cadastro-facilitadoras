@@ -27,15 +27,15 @@ public class Merchant implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "nomeFantasia")
+    @Column(name = "nome_fantasia")
     private String nomeFantasia;
 
     @NotNull
-    @Column(name = "nomeRegistro")
+    @Column(name = "nome_registro")
     private String nomeRegistro;
 
     @NotNull
-    @JoinColumn(name = "paisRegistro", referencedColumnName = "id")
+    @JoinColumn(name = "pais_registro", referencedColumnName = "id")
     @ManyToOne
     private PaisRegistro paisRegistroIdPaisRegistro;
 
@@ -74,10 +74,10 @@ public class Merchant implements Serializable {
     @ManyToOne
     private Facilitadoras facilitadorasIdFacilitadoras;
 
-    @Column(name = "dataHora")
+    @Column(name = "data_hora")
     private LocalDate dataHora;
 
-    @Column(name = "listaRestritiva")
+    @Column(name = "lista_restritiva")
     private String listaRestritiva;
 }
 

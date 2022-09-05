@@ -53,8 +53,8 @@ public class MerchantDTO {
     private  String[] socios;
     private Status status;
     private Facilitadoras facilitadoras;
-    private LocalDate data_hora;
-    private String lista_restritiva;
+    private LocalDate dataHora;
+    private String listaRestritiva;
 
     public static MerchantDTO convertDto(Merchant merchant) {
         return MerchantDTO.builder()
@@ -71,7 +71,8 @@ public class MerchantDTO {
                 .socios(new String[]{merchant.getSocios()})
                 .status(merchant.getStatusIdStatus())
                 .facilitadoras(merchant.getFacilitadorasIdFacilitadoras())
-                .lista_restritiva(merchant.getListaRestritiva())
+                .listaRestritiva(merchant.getListaRestritiva())
+                .dataHora(merchant.getDataHora())
                 .build();
     }
 
