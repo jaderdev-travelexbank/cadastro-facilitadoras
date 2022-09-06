@@ -65,7 +65,8 @@ CREATE TABLE facilitadoras.dbo.merchant (
     lista_restritiva varchar(100),
     limite varchar(100),
     grau_risco varchar(100),
-    tempo_validade_cadastro varchar(100)
+    tempo_validade_cadastro varchar(100),
+    obs varchar(500)
 );
 --comment: FOREIGN KEY MERCHANT
 ALTER TABLE facilitadoras.dbo.merchant add constraint "PK_merchant_id" primary key (id);

@@ -34,6 +34,7 @@ public class MerchantRequest {
     private String limite;
     private String grauRisco;
     private String tempoValidadeCadastro;
+    private String obs;
 
 
 

@@ -58,6 +58,7 @@ public class MerchantDTO {
     private String limite;
     private String grauRisco;
     private String tempoValidadeCadastro;
+    private String obs;
 
     public static MerchantDTO convertDto(Merchant merchant) {
         return MerchantDTO.builder()
@@ -79,6 +80,7 @@ public class MerchantDTO {
                 .limite(merchant.getLimite())
                 .grauRisco(merchant.getGrauRisco())
                 .tempoValidadeCadastro(merchant.getTempoValidadeCadastro())
+                .obs(merchant.getObs())
                 .build();
     }
 
