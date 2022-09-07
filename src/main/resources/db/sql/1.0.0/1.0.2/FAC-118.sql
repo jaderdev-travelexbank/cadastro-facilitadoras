@@ -3,14 +3,14 @@
 --comment: Ajuste para execução dos scripts iniciais
 
 --comment:TABELA PAÍS REGISTRO
-CREATE TABLE facilitadoras.dbo.paisRegistro (
+CREATE TABLE facilitadoras.dbo.pais_registro (
 
     id bigint IDENTITY(1,1) ,
     descricao varchar(100) NOT NULL
 );
 
 --comment: FOREIGN KEY PAÍS REGISTRO
-ALTER TABLE facilitadoras.dbo.paisRegistro add constraint "PK_paisRegistro_id" primary key (id);
+ALTER TABLE facilitadoras.dbo.pais_registro add constraint "PK_paisRegistro_id" primary key (id);
 
 --TABELA STATUS
 CREATE TABLE facilitadoras.dbo.status (
