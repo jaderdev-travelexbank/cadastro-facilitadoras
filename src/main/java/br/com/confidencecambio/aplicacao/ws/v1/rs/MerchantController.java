@@ -1,10 +1,12 @@
 package br.com.confidencecambio.aplicacao.ws.v1.rs;
 
+import br.com.confidencecambio.aplicacao.dto.FacilitadorasDTO;
 import br.com.confidencecambio.aplicacao.dto.LogDTO;
 import br.com.confidencecambio.aplicacao.dto.MerchantDTO;
 import br.com.confidencecambio.aplicacao.enums.ListaRestritivaStatus;
 import br.com.confidencecambio.aplicacao.enums.MerchantStatus;
 import br.com.confidencecambio.aplicacao.model.Status;
+import br.com.confidencecambio.aplicacao.service.IFacilitadorasService;
 import br.com.confidencecambio.aplicacao.service.IListaRestritivaService;
 import br.com.confidencecambio.aplicacao.service.ILogService;
 import br.com.confidencecambio.aplicacao.service.IMerchantService;
@@ -48,6 +50,9 @@ public class MerchantController {
 
     @Autowired
     private IListaRestritivaService listaRestritiva;
+
+    @Autowired
+    private IFacilitadorasService consultarFacilitadoras;
 
     private void gravarLog(String tipoConsulta, String request, String response) {
         LogDTO logDto = new LogDTO(tipoConsulta, "usuario", "sistema", request, response);
@@ -93,12 +98,21 @@ public class MerchantController {
     })
     @Parameters({@Parameter(name = "auth", description = "Token de autorizacao - Parametro obrigatorio", required = true, in = ParameterIn.HEADER)})
     public ResponseEntity<MerchantDTO> save(@RequestBody MerchantDTO merchantDTO) throws Exception{
-        Status status = new Status();
-        status.setDescricao(MerchantStatus.PEND_ANALISE.toString());
-        merchantDTO.setStatus(status);
-        MerchantDTO merchantResponse = service.salvar(merchantDTO);
-        listaRestritiva.ConsultarListaRestritiva(merchantDTO);
-        return new ResponseEntity<>(merchantResponse, HttpStatus.OK);
+        FacilitadorasDTO facilitadorasDTO = new FacilitadorasDTO();
+
+        consultarFacilitadoras.listarTodasNomeFantasia(merchantDTO.getFacilitadoras().getNomeFantasia());
+        if(facilitadorasDTO.getAtivo().equals(1)){
+            Status status = new Status();
+            status.setDescricao(MerchantStatus.PEND_ANALISE.toString());
+            merchantDTO.setStatus(status);
+
+            listaRestritiva.ConsultarListaRestritiva(merchantDTO);
+
+            MerchantDTO merchantResponse = service.salvar(merchantDTO);
+            return new ResponseEntity<>(merchantResponse, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
     }
 
 
