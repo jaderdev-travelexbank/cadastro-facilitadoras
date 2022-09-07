@@ -50,7 +50,7 @@ public class MerchantDTO {
     private String telefone;
     private String email;
     @Size(max = 10)
-    private  String[] socios;
+    private Socios socios;
     private Status status;
     private Facilitadoras facilitadoras;
     private LocalDate dataHora;
@@ -72,7 +72,7 @@ public class MerchantDTO {
                 .nif(merchant.getNif())
                 .telefone(merchant.getTelefone())
                 .email(merchant.getEmail())
-                .socios(new String[]{merchant.getSocios()})
+                .socios(merchant.getSociosIdSocios())
                 .status(merchant.getStatusIdStatus())
                 .facilitadoras(merchant.getFacilitadorasIdFacilitadoras())
                 .listaRestritiva(merchant.getListaRestritiva())

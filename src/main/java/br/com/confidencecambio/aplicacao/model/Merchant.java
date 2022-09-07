@@ -62,8 +62,9 @@ public class Merchant implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "socios")
-    private String socios;
+    @JoinColumn(name = "socios", referencedColumnName = "id")
+    @ManyToOne
+    private Socios sociosIdSocios;
 
     @JoinColumn(name = "status", referencedColumnName = "id")
     @ManyToOne
