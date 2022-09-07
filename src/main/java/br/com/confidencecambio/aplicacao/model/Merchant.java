@@ -88,6 +88,9 @@ public class Merchant implements Serializable {
 
     @Column(name = "tempo_validade_cadastro")
     private String tempoValidadeCadastro;
+
+    @Column(name = "obs")
+    private String obs;
 }
 
 
