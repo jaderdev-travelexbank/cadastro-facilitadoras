@@ -27,4 +27,8 @@ public class Status implements Serializable{
     @NotNull
     @Column(name = "descricao")
     private String descricao;
+
+    @NotNull
+    @Column(name = "status")
+    private String status;
 }

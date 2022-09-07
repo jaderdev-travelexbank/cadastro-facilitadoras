@@ -15,7 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "paisRegistro", catalog = "facilitadoras.dbo")
+@Table(name = "pais_registro", catalog = "facilitadoras.dbo")
 public class PaisRegistro implements Serializable{
     @Serial
     private static final long serialVersionUID = -4490721768940704565L;
