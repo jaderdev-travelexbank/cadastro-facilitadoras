@@ -25,7 +25,7 @@ public class MerchantRequest {
     private String nif;
     private String telefone;
     private String email;
-    private String socios;
+    private Long fk_id_socios;
     private Long fk_id_status;
     @NotNull(message = "Id Facilitadora não pode ser nulo")
     private Long fk_id_facilitadora;
