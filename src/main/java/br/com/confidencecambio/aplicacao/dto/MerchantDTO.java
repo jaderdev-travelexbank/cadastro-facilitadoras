@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -50,7 +51,7 @@ public class MerchantDTO {
     private String telefone;
     private String email;
     @Size(max = 10)
-    private Socios socios;
+    private Set<Socio> socios;
     private Status status;
     private Facilitadoras facilitadoras;
     private LocalDate dataHora;
@@ -77,6 +78,7 @@ public class MerchantDTO {
                 .facilitadoras(merchant.getFacilitadorasIdFacilitadoras())
                 .listaRestritiva(merchant.getListaRestritiva())
                 .dataHora(merchant.getDataHora())
+                .socios(merchant.getSociosIdSocios())
                 .limite(merchant.getLimite())
                 .grauRisco(merchant.getGrauRisco())
                 .tempoValidadeCadastro(merchant.getTempoValidadeCadastro())

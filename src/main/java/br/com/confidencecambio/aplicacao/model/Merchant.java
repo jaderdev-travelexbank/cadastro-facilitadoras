@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -62,9 +64,9 @@ public class Merchant implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @JoinColumn(name = "socios", referencedColumnName = "id")
-    @ManyToOne
-    private Socios sociosIdSocios;
+    @OneToMany
+    @JoinColumn(name = "merchant_id")
+    private Set<Socio> sociosIdSocios;
 
     @JoinColumn(name = "status", referencedColumnName = "id")
     @ManyToOne

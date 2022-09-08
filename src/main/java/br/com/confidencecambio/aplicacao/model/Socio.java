@@ -1,22 +1,20 @@
 package br.com.confidencecambio.aplicacao.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serial;
+import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "socios", catalog = "facilitadoras.dbo")
-public class Socios {
-
+public class Socio implements Serializable {
     @Serial
     private static final long serialVersionUID = -4490721768940704565L;
 
@@ -27,5 +25,9 @@ public class Socios {
     @NotNull
     @Column(name = "nome")
     private String nome;
+
+    @NotNull
+    @Column(name = "merchant_id")
+    private String merchantId;
 }
 
